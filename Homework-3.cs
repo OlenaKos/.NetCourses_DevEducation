@@ -17,15 +17,6 @@ namespace Lesson_2_Homework_08_08_2019
         static void Main(string[] args)
         {
 
-            //    static void arrPrint(int[] arr)
-            //{
-            //    for (int i = 0; i < arr.Length; i++)
-            //    {
-            //        Console.WriteLine("arr[{0}] = {1}", i, arr[i]);
-            //    }
-            //}
-
-
             string task = "";
             do
             {
@@ -45,10 +36,6 @@ namespace Lesson_2_Homework_08_08_2019
                             // Task #1
                             //1. Дан порядковый номер месяца, вывести на экран количество месяцев оставшихся до конца года.
                             header("1");
-
-                            //double a = 1; //roots 1, 3 //random.Next(0, 10) * random.NextDouble(); 
-                            //double b = -4;//random.Next(0, 10) * random.NextDouble();
-                            //double c = 3;//random.Next(0, 10) * random.NextDouble();
                             int IDMonth = 4;
                             task1(IDMonth);
                             break;
@@ -143,30 +130,80 @@ namespace Lesson_2_Homework_08_08_2019
                             Console.WriteLine("Current date is " + currentDate);
                             break;
                         }
-                    //case "10":
-                    //    {
-                    //        //10. Пользователь вводит с клавиатуры время начала и время завершения телефонного разговора (часы, минуты и секунды). Рассчитать стоимость разговора, если стоимость минуты – 30 копеек.
-                    //        header("10");
-                    //        task10();
-                    //        break;
-                    //    }
-                    //case "11":
-                    //    {
-                    //        //11. Пользователь вводит с клавиатуры расстояние, расход бензина на 100 км и стоимость трех видов бензина. Вывести на экран сравнительную таблицу со стоимостью поездки на разных видах бензина.
-                    //        header("11");
-                    //        string[] arr = new string[3] { "RGA", "", "VGA" };// { RandomString(18), RandomString(18), RandomString(18) };
-                    //        task11(arr);
+                    case "10":
+                        {
+                            //10. С некоторой даты по настоящий день прошло n дней, найти неизвестную дату.
+                            header("10");
+                            Console.WriteLine("Enter date in format mm/dd/yyyy");
+                            string enteredDate = Console.ReadLine();
+                            Console.WriteLine("Enter passed days value:");
+                            int n = Int32.Parse(Console.ReadLine());
+                            string currentDate = task10(enteredDate, n);
+                            Console.WriteLine("Current date is " + currentDate);
+                            break;
+                        }
+                    case "11":
+                        {
+                            //11. С 1 января 1990 года по некоторый день прошло m месяцев и n дней,
+                            // определить название текущего месяца.
+                            header("11");
 
-                    //        break;
-                    //    }
-                    //case "12":
-                    //    {
-                    //        //12. Дана точка на плоскости с координатами (х, у). Составить программу, которая выдает одно из сообщений Да, Нет, На границе в зависимости от того, лежит ли точка внутри заштрихованной области, вне заштрихованной области или на ее границе.
-                    //        header("12");
-                    //        string s = RandomString(8) + " " + RandomString(3) + " " + RandomString(6) + " " + RandomString(6) + " " + RandomString(6) + " " + RandomString(6) + " " + RandomString(6) + " " + RandomString(6) + " " + RandomString(6) + " " + RandomString(6);
-                    //        task12(s);
-                    //        break;
-                    //    }
+                            Console.WriteLine("Enter passed days value:");
+                            int n = Int32.Parse(Console.ReadLine());
+                            Console.WriteLine("Enter passed months value");
+                            int m = Int32.Parse(Console.ReadLine());
+                            string currentDate = task11(n, m);
+                            Console.WriteLine("Current date is " + currentDate);
+
+                            break;
+                        }
+                    case "12":
+                        {
+                            //12.  Дано расписание приемных часов врача. Вывести на экран приемные часы врача в заданный день недели (расписание придумать самостоятельно).
+                            header("12");
+                            task12();
+                            break;
+                        }
+
+                    case "13":
+                        {
+                            // 13.  Проведен тест, оцениваемый в целочисленный баллах от нуля до ста. Вывести на экран оценку тестируемого в зависимости от набранного количества баллов: от 90 до 100 - отлично от 70 до 89 - хорошо, от 50 до 69 - удовлетворительно, менее 50 - неудовлетворительно;.
+                            header("13");
+                            task13();
+                            break;
+                        }
+
+                    case "14":
+                        {
+                            //14.  Дан год. Вывести на экран название животного, символизирующего заданный год по восточному календарю.
+                            header("14");
+                            task14();
+                            break;
+                        }
+
+                    case "15":
+                        {
+                            // Дан возраст человека мужского пола в годах. Вывести на экран возрастную категорию: до года - младенец, от года до 11 лет - ребенок, от 12 до 15 лет - подросток, от 16 до 25 лет - юноша, от 26 до 70 лет - мужчина, более 70 лет - старик.
+                            header("15");
+                            task15();
+                            break;
+                        }
+
+                    case "16":
+                        {
+                            //16.  Дан пол человека: м - мужчина, ж - женщина. Вывести на экран возможные мужские и женские имена в зависимости от введенного пола.
+                            header("16");
+                            task16();
+                            break;
+                        }
+
+                    case "17":
+                        {
+                            //17.  Дан признак транспортного средства: a - автомобиль, в - велосипед, м - мотоцикл, с - самолет, п - поезд. Вывести на экран максимальную скорость транспортного средства в зависимости от введенного признака.
+                            header("17");
+                            task17();
+                            break;
+                        }
 
                     default:
                         {
@@ -178,6 +215,338 @@ namespace Lesson_2_Homework_08_08_2019
             while (task != "0");
             Console.ReadLine();
 
+        }
+
+        private static void task17()
+        {
+            Console.Write(" Enter your vechicle: ");
+            char chr = '0';
+            chr = Console.ReadLine()[0];
+            Console.Clear();
+            switch (chr)
+            {
+                case 'c':
+                    {
+                        Console.Write("  car 200 km/h");
+                        Console.ReadKey(); 
+                        break;
+                    }
+                case 'r':
+                    {
+                        Console.Write("  Rover 30 км/ч");
+                        Console.ReadKey(); 
+                        break;
+                    }
+                case 'b':
+                    {
+                        Console.Write("  Bike 230 km/h");
+                        Console.ReadKey();
+                        break;
+                    }
+                case 'p':
+                    {
+                        Console.Write("  Plane 1000 km/h");
+                        Console.ReadKey(); 
+                        break;
+
+                    }
+                case 't':
+                    {
+                        Console.Write("  Train 160 km/h");
+                        Console.ReadKey(); 
+                        break;
+                    }
+            }
+        }
+
+        private static void task16()
+        {
+            Console.Write(" Enter desired sex:");
+            char chr = '0';
+            chr = Console.ReadLine()[0];
+            Console.Clear();
+            switch (chr)
+            {
+                case 'm':
+                    {
+                        Console.Write(" Андрей, Дмитрий, Александр");
+                        Console.ReadKey(); break;
+                    }
+                case 'w':
+                    {
+                        Console.Write(" Татьяна, Ольга, Алена");
+                        Console.ReadKey(); break;
+                    }
+            }
+
+        }
+
+        private static void task15()
+        {
+            Console.Write(" Enter age:");
+            int year = int.Parse(Console.ReadLine());
+            char chr = '0';
+            if (year <= 1)
+                chr = 'm';
+            if (year > 1 && year <= 11)
+                chr = 'r';
+            if (year > 11 && year <= 15)
+                chr = 'p';
+            if (year >= 16 && year <= 25)
+                chr = 'y';
+            if (year >= 26 && year <= 70)
+                chr = 'M';
+            if (year > 70)
+                chr = 's';
+
+            Console.Clear();
+            switch (chr)
+            {
+                case 'm':
+                    {
+                        Console.Write(" Baby");
+                        Console.ReadKey(); break;
+                    }
+                case 'r':
+                    {
+                        Console.Write(" Toddler");
+                        Console.ReadKey(); break;
+                    }
+                case 'p':
+                    {
+                        Console.Write(" Boy ");
+                        Console.ReadKey(); break;
+                    }
+                case 'y':
+                    {
+                        Console.Write(" Teenager");
+                        Console.ReadKey(); break;
+                    }
+                case 'M':
+                    {
+                        Console.Write(" Man");
+                        Console.ReadKey(); break;
+                    }
+                case 's':
+                    {
+                        Console.Write(" Oldman");
+                        Console.ReadKey(); break;
+                    }
+            }
+        }
+
+        private static void task14()
+        {
+            DateTime date = DateTime.Today;
+            string sDate = date.ToString("MM/dd/yyyy");
+            int year = int.Parse(sDate.Substring(6, 4));
+            char chr = '0';
+            int punct = (year-800) % 12;
+            string str = punct.ToString();
+            if (str.Length > 1)
+            {  
+                chr = str[0];
+                char chr1 = str[1];
+
+                if (chr == '1' && chr1 == '0')
+                    chr = 'a';
+                if (chr == '1' && chr1 == '1')
+                    chr = 'b';
+                if (chr == '1' && chr1 == '2')
+                    chr = 'c';
+            }
+            else
+            {
+                chr = str[0];
+            }
+
+            switch (chr)
+            {
+                case '0':
+                    {
+                        Console.Write("  Dragon");
+                        Console.ReadKey(); 
+                        break;
+                    }
+                case '1':
+                    {
+                        Console.Write("  Snake");
+                        Console.ReadKey();
+                        break;
+                    }
+                case '2':
+                    {
+                        Console.Write("  Horse");
+                        Console.ReadKey(); 
+                        break;
+                    }
+                case '3':
+                    {
+                        Console.Write("  Goat");
+                        Console.ReadKey(); 
+                        break;
+                    }
+                case '4':
+                    {
+                        Console.Write("  Monkey");
+                        Console.ReadKey(); 
+                        break;
+                    }
+                case '5':
+                    {
+                        Console.Write("  Rooster");
+                        Console.ReadKey(); 
+                        break;
+                    }
+                case '6':
+                    {
+                        Console.Write("  Dog");
+                        Console.ReadKey();
+                        break;
+                    }
+                case '7':
+                    {
+                        Console.Write("   Pig");
+                        Console.ReadKey(); 
+                        break;
+                    }
+                case '8':
+                    {
+                        Console.Write("   Rat");
+                        Console.ReadKey(); 
+                        break;
+                    }
+                case '9':
+                    {
+                        Console.Write("    Bull");
+                        Console.ReadKey(); 
+                        break;
+                    }
+                case 'a':
+                    {
+                        Console.Write("  Tiger");
+                        Console.ReadKey(); 
+                        break;
+                    }
+                case 'b':
+                    {
+                        Console.Write("   Rabbit");
+                        Console.ReadKey(); 
+                        break;
+                    }
+            }
+        }
+
+        private static void task13()
+        {
+            Console.Write(" Enter score of a student: ");
+            int count = int.Parse(Console.ReadLine());
+            char chr = 'o';
+            if (count >= 90 && count <= 100)
+                chr = 'o';
+            if (count >= 70 && count < 90)
+                chr = 'h';
+            if (count >= 50 && count < 70)
+                chr = 'u';
+            if (count < 50)
+                chr = 'n';
+
+            switch (chr)
+            {
+                case 'o':
+                    {
+                        Console.Write(" Excellent - A");
+                        Console.ReadKey(); break;
+                    }
+                case 'h':
+                    {
+                        Console.Write(" Good - B");
+                        Console.ReadKey(); break;
+                    }
+                case 'u':
+                    {
+                        Console.Write(" Well - C");
+                        Console.ReadKey(); break;
+                    }
+                case 'n':
+                    {
+                        Console.Write(" No Good - D");
+                        Console.ReadKey(); break;
+                    }
+            }
+        }
+
+        private static void task12()
+        {
+            Console.Write("Enter day of week: m - monday, t - tuesday, w - wednesday, T- Thursday, f -Friday ");
+            char chr = Console.ReadLine()[0];
+            Console.Clear();
+            switch (chr)
+            {
+                case 'm':
+                    {
+                        Console.Write("  Monday 8.00-12.00");
+                        Console.ReadKey(); break;
+                    }
+                case 't':
+                    {
+                        Console.Write("  Tuesday 13.00-16.00");
+                        Console.ReadKey(); break;
+                    }
+                case 'w':
+                    {
+                        Console.Write("  Wednesday 16.00-20.00");
+                        Console.ReadKey(); break;
+
+                    }
+                case 'T':
+                    {
+                        Console.Write("  Thursday 9.00-13.00");
+                        Console.ReadKey(); break;
+                    }
+                case 'f':
+                    {
+                        Console.Write("  Friday  8.00-12.00");
+                        Console.ReadKey(); break;
+
+                    }
+                case 's':
+                    {
+                        Console.Write(" Doctor's day off ");
+                        Console.ReadKey(); break;
+
+                    }
+                case 'S':
+                    {
+                        Console.Write(" Doctor's day off ");
+                        Console.ReadKey(); break;
+                    }
+            }
+
+        }
+
+        private static string task11(int n, int m)
+        //11. С 1 января 1990 года по некоторый день прошло m месяцев и n дней,
+        {
+            //mm/dd/yyyy
+            DateTime dateStart = new DateTime(1990, 1, 1);
+            DateTime finalDate = dateStart.AddDays(n);
+            finalDate = finalDate.AddMonths(m);
+            string currentDate = finalDate.ToString("MM/dd/yyyy");
+            return currentDate;
+        }
+
+        private static string task10(string enteredDate, int n)
+        //10. С некоторой даты по настоящий день прошло n дней, найти неизвестную дату.
+        {
+            //mm/dd/yyyy
+            int iDays = Int32.Parse(enteredDate.Substring(0, 2));
+            int iMonths = Int32.Parse(enteredDate.Substring(3, 2));
+            int iYears = Int32.Parse(enteredDate.Substring(6, 4));
+            DateTime dEnteredDate = new DateTime(iYears, iMonths, iDays);
+            DateTime finalDate = dEnteredDate.AddDays(n);
+            string currentDate = finalDate.ToString("MM/dd/yyyy");
+            return currentDate;
         }
 
         private static string task9(string enteredDate, int m)
@@ -274,6 +643,33 @@ namespace Lesson_2_Homework_08_08_2019
         private static string task7(int num)
         {
             return getNameOfCurrentMonth(num);
+        }
+
+        private static int getLengthOfMonth(int month)
+        {
+            int[] lengthOfMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+            return lengthOfMonth[month];
+        }
+
+        private static int getPassedMonthCount(int days, int startingMonth)
+        {
+            int[] lengthOfMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+            int passedMonthCount = 1;
+            int currentMonthCount = startingMonth;
+
+            while (days > 0)
+            {
+                days = days - lengthOfMonth[currentMonthCount];
+                passedMonthCount++;
+                currentMonthCount++;
+                if (currentMonthCount > 12)
+                {
+                    currentMonthCount = 1;
+                }
+            }
+            return passedMonthCount;
         }
 
         private static string task6(int num)
@@ -419,7 +815,6 @@ namespace Lesson_2_Homework_08_08_2019
                     }
             }
         }
-
 
     }
 }
