@@ -1,0 +1,510 @@
+
+1.Найти сумму четных чисел и их количество в диапазоне от 1 до 99 
+
+using System;
+
+namespace Task1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int sum = 0;
+            int amount = 0;
+            int i = 1;
+            while(i <= 99)
+            {
+                if(i % 2 == 0)
+                {
+                    sum += i;
+                    amount += 1;
+                }
+                i++;
+            }
+            Console.WriteLine("Сумма четных чисел= " + sum);
+            Console.WriteLine("Количество четных чисел= " + amount);
+            Console.ReadKey();
+        }
+    }
+}
+
+2.Проверить простое ли число? (число называется простым, если оно делится только само на себя и на 1)
+
+using System;
+
+namespace Task2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("\tОпределение простого числа.");
+            Console.Write("Введите целое число: ");
+            int n = int.Parse(Console.ReadLine());
+            bool b = true;
+            if (n < 2)
+            {
+                Console.WriteLine("Неверный ввод числа!");
+            }
+            else
+            {
+                for(int i = 2; i * i <= n; i++)
+                {
+
+                    if(n % i  == 0)
+                    {
+                        b = false;
+                    }
+                }
+                if (b)
+                {
+                    Console.WriteLine(n + " простое число.");
+                }
+                else
+                {
+                    Console.WriteLine(n + " составное число.");
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+3.Найти корень натурального числа с точностью до целого (рассмотреть вариант последовательного подбора и метод бинарного поиска)
+
+using System;
+
+namespace Task3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Введите целое число: ");
+            double n = double.Parse(Console.ReadLine());
+            int root = 1;
+            while (root * root <= n)
+            {
+                root++;
+            }
+            --root;
+            Console.WriteLine(root);
+            
+            Console.ReadKey();
+        }
+    }
+}
+
+4.Вычислить факториал числа n
+
+using System;
+
+namespace Task4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Введите целое число: ");
+            int n = int.Parse(Console.ReadLine());
+            if(n == 0)
+            {
+                n = 1;
+            }
+            else
+            {
+                for (int i = n - 1; i > 1; i--)
+                {
+                    n *= i;
+                }
+                Console.Write(n + " ");
+            }         
+            Console.ReadKey();
+        }
+    }
+}
+
+5.Вывести число, которое является зеркальным отображением последовательности цифр заданного числа, например, задано число 123, вывести 321
+
+using System;
+
+namespace Task5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Введите целое число: ");
+            int n = int.Parse(Console.ReadLine());
+            for (int i = n; i > 0; i /= 10)
+            {
+                Console.Write(i % 10);
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+6.Таблицу перевода расстояний в дюймах в сантиметры для значений 2, 4, 6, …, 12 дюймов (1 дюйм = 25.4 мм);
+
+using System;
+
+namespace Task6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("while: ");
+            float i = 2;
+            while (i <= 12)
+            {
+                Console.WriteLine(i + " дюймов" + "  " + i * 2.54 + " сантиметров.");
+                i += 2;
+            }
+
+            Console.WriteLine("\ndo while: ");
+            i = 2;
+            do
+            {
+                Console.WriteLine(i + " дюймов" + "  " + i * 2.54 + " сантиметров.");
+                i += 2;
+            } while (i <= 12);
+
+            Console.WriteLine("\nfor: ");
+            for (i = 2; i <= 12; i += 2)
+            {
+                Console.WriteLine(i + " дюймов" + "  " + i * 2.54 + " сантиметров.");
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+7.Кубы всех целых чисел из диапазона от А до В (А<=В) в обратном порядке;
+
+using System;
+
+namespace Task7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Введите начало диапазона, А= ");
+            int A = int.Parse(Console.ReadLine());
+            Console.Write("Введите конец диапазона, B= ");
+            int B = int.Parse(Console.ReadLine());
+            Console.WriteLine("while: ");
+            int i = B;
+            if (A > B) Console.WriteLine("Ошибка! А дожно быть меньше В");
+            else
+            {
+                while (i >= A)
+                {
+                    Console.Write(Math.Pow(i, 3) + "  ");
+                    --i;
+                }
+
+                Console.WriteLine("\ndo while: ");
+                i = B;
+                do
+                {
+                    Console.Write(Math.Pow(i, 3) + "  ");
+                    --i;
+                } while (i >= A);
+
+                Console.WriteLine("\nfor: ");
+                for (i = B; i >= A; --i)
+                {
+                    Console.Write(Math.Pow(i, 3) + "  ");
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+8.Bсе целые числа из диапазона от А до В (А<=В), оканчивающиеся на цифру Х или У;
+
+using System;
+
+namespace Task8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Введите начало диапазона, А= ");
+            int A = int.Parse(Console.ReadLine());
+            Console.Write("Введите конец диапазона, B= ");
+            int B = int.Parse(Console.ReadLine());
+            Console.Write("Введите, x= ");
+            int x = int.Parse(Console.ReadLine());
+            Console.Write("Введите, y= ");
+            int y = int.Parse(Console.ReadLine());
+            Console.Write("Посмотреть числа оканчивающиеся на x- введите x, на y- введите 
+            y: "); 
+            char ch = char.Parse(Console.ReadLine());
+            Console.WriteLine("while: ");
+            int i = A;
+            if (A > B) Console.WriteLine("Ошибка! А дожно быть <= В");
+            else
+            {
+                switch (ch)
+                {
+                    case 'x':
+                        while (i <= B)
+                        {
+                            if (i % 10 == x || i % 10 == -x) Console.Write(i + " ");
+                            ++i;
+                        }
+                        break;
+                    case 'y':
+                        while (i <= B)
+                        {
+                            if (i % 10 == y || i % 10 == -y) Console.Write(i + " ");
+                            ++i;
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Такого варианта нет");
+                        break;
+                }
+
+                Console.WriteLine("\ndo while: ");
+                i = A;
+                switch (ch)
+                {
+                    case 'x':
+                        do
+                        {
+                            if (i % 10 == x || i % 10 == -x) Console.Write(i + " ");
+                            ++i;
+                        } while (i <= B);
+                        break;
+                    case 'y':
+                        do
+                        {
+                            if (i % 10 == y || i % 10 == -y) Console.Write(i + " ");
+                            ++i;
+                        } while (i <= B);
+                        break;
+                    default:
+                        Console.WriteLine("Такого варианта нет");
+                        break;
+                }
+
+                Console.WriteLine("\nfor: ");
+                switch (ch)
+                {
+                    case 'x':
+                        for (i = A; i <= B; ++i)
+                        {
+                            if (i % 10 == x || i % 10 == -x) Console.Write(i + " ");
+                        }
+                        break;
+                    case 'y':
+                        for (i = A; i <= B; ++i)
+                        {
+                            if (i % 10 == y || i % 10 == -y) Console.Write(i + " ");
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Такого варианта нет");
+                        break;
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+9.Bсе целые числа из диапазона от А до В (А<=В), оканчивающиеся на любую четную цифру;
+
+using System;
+
+namespace Task9
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Введите начало диапазона, А= ");
+            int A = int.Parse(Console.ReadLine());
+            Console.Write("Введите конец диапазона, B= ");
+            int B = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("while: ");
+
+            if (A > B) Console.WriteLine("Ошибка! А дожно быть <= В");
+            else
+            {
+                int i = A;
+                while (i <= B)
+                {
+                    if (i % 2 == 0) Console.Write(i + " ");
+                    ++i;
+                }
+
+                Console.WriteLine("\ndo while: ");
+                i = A;
+                do
+                {
+                    if (i % 2 == 0) Console.Write(i + " ");
+                    ++i;
+                } while (i <= B);
+
+                Console.WriteLine("\nfor: ");
+                for (i = A; i <= B; ++i)
+                {
+                    if (i % 2 == 0) Console.Write(i + " ");
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+10.Bсе двухзначные числа, в записи которых все цифры разные;
+
+using System;
+
+namespace Task10
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("while: ");
+            int a, b;
+            int i = 10;
+            while (i < 100)
+            {
+                a = i / 10 % 10;
+                b = i % 10;
+                if (a != b) Console.Write(i + " ");
+                ++i;
+            }
+
+            Console.WriteLine("\ndo while: ");
+            i = 10;
+            do
+            {
+                a = i / 10 % 10;
+                b = i % 10;
+                if (a != b) Console.Write(i + " ");
+                ++i;
+            } while (i < 100);
+
+            Console.WriteLine("\nfor: ");
+            for (i = 10; i < 100; ++i)
+            {
+                a = i / 10 % 10;
+                b = i % 10;
+                if (a != b) Console.Write(i + " ");
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+11.Bсе двухзначные числа, в которых старшая цифра отличается от младшей не больше чем на 1;
+
+using System;
+
+namespace Task11
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("while: ");
+            int a, b;
+            int i = 10;
+            while (i < 100)
+            {
+                a = i / 10 % 10;
+                b = i % 10;
+                if (a - b == 1) Console.Write(i + " ");
+                ++i;
+            }
+
+            Console.WriteLine("\ndo while: ");
+            i = 10;
+            do
+            {
+                a = i / 10 % 10;
+                b = i % 10;
+                if (a - b == 1) Console.Write(i + " ");
+                ++i;
+            } while (i < 100);
+
+            Console.WriteLine("\nfor: ");
+            for (i = 10; i < 100; ++i)
+            {
+                a = i / 10 % 10;
+                b = i % 10;
+                if (a - b == 1) Console.Write(i + " ");
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+12.Bсе трехзначные числа, в которых все цифры повторяются.
+
+using System;
+
+
+namespace Task12
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i = 100;
+            Console.WriteLine("While:");
+            while(i < 1000)
+            {
+                int a = i % 10;
+                int b = (i / 10) % 10;
+                int c = (i / 100) % 10;
+                if(a == b && a == c)
+                {
+                    Console.Write(i + " ");
+                }
+                i++;
+            }
+            Console.WriteLine();
+            Console.WriteLine("Do-While:");
+            i = 100;
+            do
+            {
+                int a = i % 10;
+                int b = (i / 10) % 10;
+                int c = (i / 100) % 10;
+                if (a == b && a == c)
+                {
+                    Console.Write(i + " ");
+                }
+                i++;
+            }
+            while (i < 1000);
+            Console.WriteLine();
+            Console.WriteLine("For:");
+            for(i = 100; i < 1000; i++)
+            {
+                int a = i % 10;
+                int b = (i / 10) % 10;
+                int c = (i / 100) % 10;
+                if (a == b && a == c)
+                {
+                    Console.Write(i + " ");
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
